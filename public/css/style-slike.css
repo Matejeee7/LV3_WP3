@@ -1,0 +1,236 @@
+/* Osnovni reset i varijable */
+
+:root {
+    --primary-color: #c7194d;
+    --secondary-color: #5500f4a1;
+    --background-color: #f8f6f3;
+    --surface-color: #ffffff;
+    --text-color: #222222;
+    --accent-color: #4913c7;
+    --border-color: #d9d9d9;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --radius: 12px;
+    --max-width: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Header */
+
+.site-header {
+    background: linear-gradient(90deg, var(--primary-color), #d94f4f);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.site-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Skrivena navigacija */
+
+.nav-wrapper {
+    position: relative;
+    max-width: var(--max-width);
+    margin: 1rem auto 0;
+    padding: 0 1rem;
+}
+
+.menu-toggle {
+    background-color: #2f2f2f;
+    color: white;
+    border: none;
+    padding: 0.9rem 1.3rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.main-nav {
+    position: absolute;
+    top: 100%;
+    left: 1rem;
+    margin-top: 0.4rem;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 10;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 1rem;
+}
+
+.main-nav li + li {
+    margin-top: 0.8rem;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+}
+
+.main-nav a:hover {
+    color: var(--secondary-color);
+}
+
+.nav-wrapper:hover .main-nav {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Galerija */
+
+.gallery-page {
+    max-width: var(--max-width);
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.gallery-section {
+    background-color: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.gallery-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.gallery-description {
+    margin-bottom: 1.5rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    text-align: center;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    opacity: 0.92;
+    transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.04);
+    opacity: 1;
+    filter: brightness(1.05);
+}
+
+
+.gallery-item figcaption {
+    margin-top: 0.6rem;
+    font-size: 0.95rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Lightbox */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.88);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
+}
+
+.lightbox:target {
+    opacity: 1;
+    visibility: visible;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    text-decoration: none;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+/* Footer */
+
+.site-footer {
+    margin-top: 2rem;
+    background-color: #2f2f2f;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Responzivni dizajn */
+
+@media (max-width: 900px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .site-header h1 {
+        font-size: 2rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-section {
+        padding: 1rem;
+    }
+
+    .gallery-item img {
+        height: 200px;
+    }
+}

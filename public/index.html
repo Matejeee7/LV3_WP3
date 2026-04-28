@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web stranica o filmovima s JavaScript dohvatom, filtriranjem i košaricom.">
+    <title>Filmovi Web | LV3</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <h1>Filmovi Web</h1>
+            <p>LV3: dohvat CSV podataka, filtriranje, sortiranje i košarica za posudbu</p>
+        </div>
+    </header>
+
+    <div class="nav-wrapper">
+        <button class="menu-toggle" aria-label="Prikaži navigaciju">☰ Menu</button>
+        <nav class="main-nav" aria-label="Glavna navigacija">
+            <ul>
+                <li><a href="index.html">Početna</a></li>
+                <li><a href="html/grafikon.html">Grafikon</a></li>
+                <li><a href="html/slike.html">Galerija</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="page-layout">
+        <main class="main-content">
+            <section class="intro" aria-labelledby="uvod-naslov">
+                <h2 id="uvod-naslov">O projektu</h2>
+                <p>Ova verzija nadograđuje prethodnu stranicu JavaScript funkcionalnostima iz treće laboratorijske vježbe. Podaci se učitavaju iz CSV datoteke na klijentskoj strani, bez serverske obrade.</p>
+            </section>
+
+            <section class="movie-table-section" aria-labelledby="tablica-naslov">
+                <h2 id="tablica-naslov">Dinamički prikaz podataka</h2>
+                <p>Tablica se automatski popunjava podacima iz datoteke <strong>movies.csv</strong>.</p>
+                <div class="table-wrapper">
+                    <table id="dinamicka-tablica">
+                        <caption>Prvih 5 učitanih naslova</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Naslov</th>
+                                <th scope="col">Godina</th>
+                                <th scope="col">Žanr</th>
+                                <th scope="col">Trajanje</th>
+                                <th scope="col">Država</th>
+                                <th scope="col">Dobna oznaka</th>
+                                <th scope="col">Tip</th>
+                            </tr>
+                        </thead>
+                        <tbody><tr><td colspan="7">Učitavanje podataka...</td></tr></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="filter-section" aria-labelledby="filter-naslov-sekcije">
+                <h2 id="filter-naslov-sekcije">Filtriranje, pretraživanje i sortiranje</h2>
+                <div id="filteri" class="filters">
+                    <label>Žanr
+                        <select id="filter-zanr"><option value="">Svi žanrovi</option></select>
+                    </label>
+                    <label>Pretraži naslov
+                        <input type="text" id="filter-naslov" placeholder="npr. Stranger">
+                    </label>
+                    <label>Godina od: <span id="godina-vrijednost">1940</span>
+                        <input type="range" id="filter-godina" min="1940" max="2021" value="1940">
+                    </label>
+                    <fieldset>
+                        <legend>Tip sadržaja</legend>
+                        <label><input type="radio" name="filter-tip" value="Sve" checked> Sve</label>
+                        <label><input type="radio" name="filter-tip" value="Movie"> Filmovi</label>
+                        <label><input type="radio" name="filter-tip" value="TV Show"> Serije</label>
+                    </fieldset>
+                    <label>Sortiranje
+                        <select id="sort-filmovi">
+                            <option value="godina-silazno">Godina: novije prvo</option>
+                            <option value="godina-uzlazno">Godina: starije prvo</option>
+                            <option value="naslov">Naslov A-Z</option>
+                        </select>
+                    </label>
+                    <div class="filter-actions">
+                        <button id="primijeni-filtere" type="button">Filtriraj</button>
+                        <button id="reset-filtera" type="button">Reset</button>
+                    </div>
+                </div>
+                <p id="broj-rezultata" class="result-count"></p>
+                <div class="table-wrapper">
+                    <table id="rezultati-tablica">
+                        <caption>Filtrirani rezultati</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Naslov</th>
+                                <th scope="col">Godina</th>
+                                <th scope="col">Žanr</th>
+                                <th scope="col">Trajanje</th>
+                                <th scope="col">Država</th>
+                                <th scope="col">Dobna oznaka</th>
+                                <th scope="col">Tip</th>
+                                <th scope="col">Akcija</th>
+                            </tr>
+                        </thead>
+                        <tbody><tr><td colspan="8">Učitavanje rezultata...</td></tr></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <aside class="sidebar" aria-label="Dodatni sadržaj o filmovima">
+            <section id="kosarica" class="cart-box" aria-labelledby="kosarica-naslov">
+                <h2 id="kosarica-naslov">Košarica za posudbu (<span id="broj-kosarice">0</span>)</h2>
+                <ul id="lista-kosarice"></ul>
+                <button id="potvrdi-kosaricu" type="button">Potvrdi posudbu</button>
+                <p id="poruka-korisniku" class="message" role="status"></p>
+            </section>
+
+            <h2>Izdvojeni vizuali</h2>
+            <picture>
+                <source media="(max-width: 568px)" srcset="images/cinema.jpg">
+                <img src="images/cinema.jpg" alt="Ilustracija filmske tematike stranice">
+            </picture>
+            <p>Galerija donosi stilizirane filmske postere, a stranica s grafikonima prikazuje odnos žanrova iz tablice filmova.</p>
+            <a class="more-btn" href="html/slike.html">Pogledaj galeriju</a>
+        </aside>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Filmovi Web | Web programiranje</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

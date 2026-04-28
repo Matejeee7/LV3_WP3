@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta tag za SEO: opis galerije filmskih slika -->
+    <meta name="description" content="Galerija stiliziranih slika na temu filmova s lightbox prikazom bez JavaScripta.">
+    <title>Filmovi Web | Galerija</title>
+    <link rel="stylesheet" href="../css/style-slike.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <h1>Filmovi Web</h1>
+        <p>Galerija filmskih postera.</p>
+    </header>
+
+    <div class="nav-wrapper">
+        <button class="menu-toggle" aria-label="Prikaži navigaciju">☰ Menu</button>
+
+        <nav class="main-nav" aria-label="Glavna navigacija">
+            <ul>
+                <li><a href="../index.html">Početna</a></li>
+                <li><a href="html/grafikon.html">Grafikon</a></li>
+                <li><a href="html/slike.html">Galerija</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="gallery-page">
+        <section class="gallery-section" aria-labelledby="galerija-naslov">
+            <h2 id="galerija-naslov">Galerija filmskih postera</h2>
+            <p class="gallery-description">
+                Klikom na pojedinu sliku prikazuje se njezina veća verzija. Slike koriste lazy-loading
+                radi bržeg učitavanja stranice.
+            </p>
+
+            <div class="gallery-grid">
+                <figure class="gallery-item">
+                    <a href="#img1">
+                        <img src="../images/At_Close_Range_poster.jpg" alt="Poster filma At Close Range" loading="lazy">
+                    </a>
+                    <figcaption>At Close Range</figcaption>
+                </figure>
+
+                <figure class="gallery-item">
+                    <a href="#img2">
+                        <img src="../images/Diner-movie-poster-1982.jpg" alt="Naslovnica filma Diner" loading="lazy">
+                    </a>
+                    <figcaption>Diner</figcaption>
+                </figure>
+
+                <figure class="gallery-item">
+                    <a href="#img3">
+                        <img src="../images/Boweryatmidnight.jpg" alt="Naslovnica filma Bowery at Midnight" loading="lazy">
+                    </a>
+                    <figcaption>Bowery at Midnight</figcaption>
+                </figure>
+
+                <figure class="gallery-item">
+                    <a href="#img4">
+                        <img src="../images/Dead_bang_poster.jpg" alt="Naslovnica filma Dead-Bang" loading="lazy">
+                    </a>
+                    <figcaption>Dead-Bang</figcaption>
+                </figure>
+
+                <figure class="gallery-item">
+                    <a href="#img5">
+                        <img src="../images/ride a wild pony poster.jpg" alt="Naslovnica filma Ride a Wild Pony" loading="lazy">
+                    </a>
+                    <figcaption>Ride a Wild Pony</figcaption>
+                </figure>
+
+                <figure class="gallery-item">
+                    <a href="#img6">
+                        <img src="../images/Mr_Majestyk_movie_poster.jpg" alt="Naslovnica filma Mr. Majestyk" loading="lazy">
+                    </a>
+                    <figcaption>Mr. Majestyk</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Lightbox elementi -->
+        <div id="img1" class="lightbox">
+            <a href="#" class="close">×</a>
+            <img src="../images/At_Close_Range_poster.jpg" alt="Povećana slika 1">
+        </div>
+
+        <div id="img2" class="lightbox">
+            <a href="#" class="close">×</a>
+            <img src="../images/Diner-movie-poster-1982.jpg" alt="Povećana slika 2">
+        </div>
+
+        <div id="img3" class="lightbox">
+            <a href="#" class="close">×</a>
+            <img src="../images/Boweryatmidnight.jpg" alt="Povećana slika 3">
+        </div>
+
+        <div id="img4" class="lightbox">
+            <a href="#" class="close">×</a>
+            <img src="../images/Dead_bang_poster.jpg" alt="Povećana slika 4">
+        </div>
+
+        <div id="img5" class="lightbox">
+            <a href="#" class="close">×</a>
+            <img src="../images/ride a wild pony poster.jpg" alt="Povećana slika 5">
+        </div>
+
+        <div id="img6" class="lightbox">
+            <a href="#" class="close">×</a>
+            <img src="../images/Mr_Majestyk_movie_poster.jpg" alt="Povećana slika 6">
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Filmovi Web | Web programiranje</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,343 @@
+:root {
+    --primary-color: #c7194d;
+    --secondary-color: #6f3cff;
+    --background-color: #f8f6f3;
+    --surface-color: #ffffff;
+    --text-color: #222222;
+    --shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    --radius: 14px;
+    --max-width: 1200px;
+    --komedija: linear-gradient(180deg, #ff8a65, #ff7043);
+    --drama: linear-gradient(180deg, #7e57c2, #5e35b1);
+    --akcija: linear-gradient(180deg, #42a5f5, #1e88e5);
+    --ostalo: linear-gradient(180deg, #66bb6a, #43a047);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.site-header {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-align: center;
+    padding: 2.5rem 1rem;
+}
+
+.header-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.site-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.nav-wrapper {
+    position: relative;
+    max-width: var(--max-width);
+    margin: 1rem auto 0;
+    padding: 0 1rem;
+}
+
+.menu-toggle {
+    background-color: #2f2f2f;
+    color: white;
+    border: none;
+    padding: 0.9rem 1.3rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.main-nav {
+    position: absolute;
+    top: 100%;
+    left: 1rem;
+    margin-top: 0.4rem;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 10;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 1rem;
+}
+
+.main-nav li + li {
+    margin-top: 0.8rem;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+}
+
+.main-nav a:hover {
+    color: #ffe082;
+}
+
+.nav-wrapper:hover .main-nav,
+.main-nav:hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.chart-page {
+    max-width: var(--max-width);
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.chart-section,
+.bar-section {
+    background-color: var(--surface-color);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.chart-section h2,
+.bar-section h2,
+.legend-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.chart-description {
+    margin-bottom: 1.5rem;
+}
+
+.chart-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.pie-chart-card,
+.legend-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 360px;
+    background: #faf8ff;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+}
+
+.pie-chart {
+    width: 320px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at center, #ffffff 0 34%, transparent 35%),
+        conic-gradient(
+            #ff7043 0 26.32%,
+            #5e35b1 26.32% 52.64%,
+            #1e88e5 52.64% 63.16%,
+            #43a047 63.16% 100%
+        );
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease;
+}
+
+.pie-chart:hover {
+    transform: scale(1.03);
+}
+
+.chart-center {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: inset 0 0 0 2px #eee;
+}
+
+.legend {
+    list-style: none;
+    width: 100%;
+}
+
+.legend li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.legend-color {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.komedija {
+    background: #ff7043;
+}
+
+.drama {
+    background: #5e35b1;
+}
+
+.akcija {
+    background: #1e88e5;
+}
+
+.ostalo {
+    background: #43a047;
+}
+
+.bar-chart {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1.5rem;
+    min-height: 320px;
+    padding: 1rem 0.5rem 0;
+    border-bottom: 3px solid #d6d6d6;
+}
+
+.bar-item {
+    flex: 1;
+    text-align: center;
+}
+
+.bar {
+    width: 100%;
+    max-width: 140px;
+    margin: 0 auto 0.8rem;
+    border-radius: 16px 16px 0 0;
+    position: relative;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.bar:hover {
+    transform: translateY(-6px);
+    filter: brightness(1.08);
+}
+
+.bar::after {
+    content: attr(data-value) " filmova";
+    position: absolute;
+    top: -38px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2f2f2f;
+    color: white;
+    font-size: 0.85rem;
+    padding: 0.35rem 0.55rem;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+}
+
+.bar:hover::after {
+    opacity: 1;
+}
+
+.komedija-bar {
+    height: 170px;
+    background: var(--komedija);
+}
+
+.drama-bar {
+    height: 170px;
+    background: var(--drama);
+}
+
+.akcija-bar {
+    height: 80px;
+    background: var(--akcija);
+}
+
+.ostalo-bar {
+    height: 230px;
+    background: var(--ostalo);
+}
+
+.site-footer {
+    margin-top: 2rem;
+    background-color: #2f2f2f;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+@media (max-width: 900px) {
+    .chart-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .pie-chart-card,
+    .legend-card {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 700px) {
+    .site-header h1 {
+        font-size: 2rem;
+    }
+
+    .pie-chart {
+        width: 250px;
+    }
+
+    .bar-chart {
+        gap: 0.8rem;
+        min-height: 260px;
+    }
+
+    .komedija-bar {
+        height: 140px;
+    }
+
+    .drama-bar {
+        height: 140px;
+    }
+
+    .akcija-bar {
+        height: 65px;
+    }
+
+    .ostalo-bar {
+        height: 190px;
+    }
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CSS-only grafikon koji prikazuje zastupljenost filmskih žanrova iz tablice filmova.">
+    <title>Filmovi Web | Grafikon</title>
+    <link rel="stylesheet" href="../css/grafikon.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <h1>Filmovi Web</h1>
+            <p>Vizualizacija filmskih žanrova pomoću HTML-a i CSS-a</p>
+        </div>
+    </header>
+
+    <div class="nav-wrapper">
+        <button class="menu-toggle" aria-label="Prikaži navigaciju">☰ Menu</button>
+        <nav class="main-nav" aria-label="Glavna navigacija">
+            <ul>
+                <li><a href="../index.html">Početna</a></li>
+                <li><a href="grafikon.html">Grafikon</a></li>
+                <li><a href="slike.html">Galerija</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="chart-page">
+        <section class="chart-section" aria-labelledby="grafikon-naslov">
+            <h2 id="grafikon-naslov">Zastupljenost žanrova</h2>
+            <p class="chart-description">Grafikon je izrađen bez JavaScripta. Na većim ekranima prikazuje se kružni prikaz, a na manjim ekranima histogram.</p>
+
+            <div class="chart-layout">
+                <div class="pie-chart-card">
+                    <div class="pie-chart" role="img" aria-label="Kružni grafikon zastupljenosti filmskih žanrova">
+                        <span class="chart-center">19 filmova</span>
+                    </div>
+                </div>
+
+                <div class="legend-card">
+                    <h3>Legenda</h3>
+                    <ul class="legend">
+                        <li><span class="legend-color komedija"></span>Komedija — 5</li>
+                        <li><span class="legend-color drama"></span>Drama — 5</li>
+                        <li><span class="legend-color akcija"></span>Akcija — 2</li>
+                        <li><span class="legend-color ostalo"></span>Ostali žanrovi — 7</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="bar-section" aria-labelledby="bar-naslov">
+            <h2 id="bar-naslov">Histogram žanrova</h2>
+            <div class="bar-chart" aria-label="Histogram filmskih žanrova">
+                <div class="bar-item">
+                    <div class="bar komedija-bar" data-value="5"></div>
+                    <p>Komedija</p>
+                </div>
+                <div class="bar-item">
+                    <div class="bar drama-bar" data-value="5"></div>
+                    <p>Drama</p>
+                </div>
+                <div class="bar-item">
+                    <div class="bar akcija-bar" data-value="2"></div>
+                    <p>Akcija</p>
+                </div>
+                <div class="bar-item">
+                    <div class="bar ostalo-bar" data-value="7"></div>
+                    <p>Ostalo</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Filmovi Web | Web programiranje</p>
+    </footer>
+</body>
+</html>
