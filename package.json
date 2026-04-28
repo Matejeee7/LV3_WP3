@@ -1,0 +1,18 @@
+{
+  "name": "lv1-webprogramiranje-filmovi",
+  "version": "1.0.0",
+  "description": "LV1 + LV2 projekt",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matejeee7/LV1-WebProgramiranje-Filmovi.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^5.0.1",
+    "express": "^5.2.1"
+  }
+}
